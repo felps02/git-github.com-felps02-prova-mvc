@@ -1,0 +1,53 @@
+# Descrição
+
+Você irá evoluir a API REST criada anteriormente, substituindo o armazenamento em arrays pela persistência de dados com MySQL utilizando Sequelize ORM.
+Além disso, será implementada uma estrutura de autenticação com hash de senha utilizando bcrypt e uma rota de login que valida os dados do usuário.
+
+# Requisitos
+
+1. Substituir o armazenamento em arrays pelo Sequelize:
+   * Configure a conexão com o banco de dados MySQL (utilizando o XAMPP).
+   * Crie os modelos Sequelize para User, Project e Task, respeitando os relacionamentos:
+     * Um projeto tem várias tarefas.
+     * Uma tarefa pertence a um usuário e a um projeto.
+   * Uso opcional de arquivo `.env` para armazenar as variáveis de ambiente (ex: DB_HOST, DB_USER, DB_PASSWORD, DB_NAME).
+2. Criar o banco de dados e as tabelas usando Sequelize (via sequelize.sync()).
+3. Modificar os controllers para utilizarem Sequelize em vez de arrays.
+
+# Novo Requisito: Autenticação
+
+Adicione os seguintes recursos à API de usuários:
+
+* Registro (Signup) – POST /api/users
+  * Cria um usuário com senha criptografada com bcrypt.
+  * Dica: use bcrypt.hash(senha, saltRounds) no momento do cadastro.
+* Login – POST /api/login
+  * Verifica se o email e senha são válidos.
+  * Dica: use bcrypt.compare(senhaDigitada, senhaHashBanco).
+  * Retorna mensagem de sucesso com JWT ou erro.
+
+# Estrutura do Projeto (atualizada)
+project/
+│-- src/
+│   ├── controllers/
+│   │   ├── userController.js
+│   │   ├── projectController.js
+│   │   ├── taskController.js
+|   ├── config/
+│   │   ├── database.js ← configura Sequelize + conexão com MySQL
+│   ├── models/   
+│   │   ├── user.js
+│   │   ├── project.js
+│   │   ├── task.js
+│   ├── server.js
+│-- .env ← armazena credenciais do banco
+│-- package.json
+
+
+# Entregáveis
+
+* Projeto funcional com banco de dados MySQL rodando via XAMPP.
+* Operações CRUD para todas as entidades com Sequelize.
+* Rota de login e cadastro utilizando bcrypt.
+* README explicando como rodar o projeto localmente.
+* Link do repositório no GitHub.
