@@ -51,3 +51,31 @@ project/
 * Rota de login e cadastro utilizando bcrypt.
 * README explicando como rodar o projeto localmente.
 * Link do repositório no GitHub.
+
+
+Faça o clone do repositório para sua máquina local.
+Instale todas as dependências necessárias para o projeto:
+
+npm install
+
+inicie o servidor:
+
+node src/server.js
+
+como testar o Projeto
+
+
+Rotas Disponíveis
+
+Login
+Rota: POST /api/login
+Descrição: Realiza o login e retorna um token JWT.
+Body:
+
+{
+    "nome" : "felps",
+  "email": "felpss@gmail.com",
+  "senha": "suasenha"
+}
+
+em Server.js tem todas as rotas disponiveis para teste
